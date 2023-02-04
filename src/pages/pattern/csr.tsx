@@ -32,6 +32,10 @@ export default function CSR() {
           createdAt
           url
         }
+        createdBy {
+          name
+        }
+        createdAt
       }
     }
     `,
@@ -57,12 +61,20 @@ export default function CSR() {
     );
 
   return (
-    <Layout>
-      {data?.posts[0] ? (
-        <Post {...data!.posts[0]} />
-      ) : (
-        <div className={styles.main}>No posts found!</div>
-      )}
-    </Layout>
+    <>
+      <Head>
+        <title>Client Side Rendering</title>
+      </Head>
+      <Layout>
+        <h1 className={`${inter.className} text-5xl mb-4`}>
+          Client Side Rendering
+        </h1>
+        {data?.posts[0] ? (
+          <Post {...data!.posts[3]} />
+        ) : (
+          <div className={styles.main}>No posts found!</div>
+        )}
+      </Layout>
+    </>
   );
 }

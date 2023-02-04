@@ -1,7 +1,7 @@
 .main {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
@@ -48,10 +48,12 @@
 
 .card {
   padding: 1rem 2.5rem;
+  margin: 1rem 2.5rem;
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0.1);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+  max-width: 60%;
 }
 
 .card span {
@@ -65,11 +67,10 @@
 }
 
 .card p {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
+  opacity: 0.8;
+  font-size: 1rem;
   line-height: 1.5;
-  max-width: 30ch;
+  max-width: 100%;
 }
 
 .center {

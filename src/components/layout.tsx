@@ -7,9 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Link href={"/"} className={`${styles.card} ${inter.className}`}>
-        Home
-      </Link>
+      <header className="absolute top-10 pl-4">
+        <Link href={"/"} className={`${styles.card} ${inter.className}`}>
+          Home
+        </Link>
+      </header>
       <main className={`${styles.main} ${inter.className}`}>{children}</main>
     </>
   );
