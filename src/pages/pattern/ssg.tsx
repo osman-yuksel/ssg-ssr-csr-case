@@ -19,9 +19,11 @@ export default function SSG({
         <title>Server Side Generation</title>
       </Head>
       <Layout>
-        <h1 className={`${inter.className} text-5xl mb-4`}>Server Side Generation</h1>
+        <h1 className={`${inter.className} text-5xl mb-4`}>
+          Server Side Generation
+        </h1>
         {posts[0] ? (
-          <Post {...posts[0]} />
+          <Post {...posts[Math.floor(Math.random() * posts.length)]} />
         ) : (
           <div className={styles.main}>No posts found!</div>
         )}

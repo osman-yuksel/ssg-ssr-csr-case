@@ -19,9 +19,11 @@ export default function SSR({
         <title>Server Side Rendering</title>
       </Head>
       <Layout>
-        <h1 className={`${inter.className} text-5xl mb-4`}>Server Side Rendering</h1>
+        <h1 className={`${inter.className} text-5xl mb-4`}>
+          Server Side Rendering
+        </h1>
         {posts[0] ? (
-          <Post {...posts[0]} />
+          <Post {...posts[Math.floor(Math.random() * posts.length)]} />
         ) : (
           <div className={styles.main}>No posts found!</div>
         )}

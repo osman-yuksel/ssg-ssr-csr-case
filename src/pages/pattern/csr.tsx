@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import useSWR, { Key, Fetcher } from "swr";
-import Link from "next/link";
 import { request } from "graphql-request";
 import Layout from "@/components/layout";
 import Post from "@/components/post";
@@ -70,7 +69,9 @@ export default function CSR() {
           Client Side Rendering
         </h1>
         {data?.posts[0] ? (
-          <Post {...data!.posts[3]} />
+          <Post
+            {...data!.posts[Math.floor(Math.random() * data.posts.length)]}
+          />
         ) : (
           <div className={styles.main}>No posts found!</div>
         )}
