@@ -14,6 +14,8 @@ interface Post {
   title: string;
   slug: string;
   coverImage: CoverImage;
-  createdBy?: string;
+  createdBy?: {
+    name: string
+  };
   createdAt: Date
 }
