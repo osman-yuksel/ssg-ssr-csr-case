@@ -7,6 +7,7 @@ import { InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { GraphQLClient } from "graphql-request";
 import Layout from "@/components/layout";
+import Post from "@/components/post";
 
 const inter = Inter({ subsets: ["latin"] });
 export default function SSG({
@@ -21,9 +22,11 @@ export default function SSG({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className={styles.main}>
-          <p>{posts[0].title}</p>
-        </div>
+        {posts[0] ? (
+          <Post {...posts[0]} />
+        ) : (
+          <div className={styles.main}>No posts found!</div>
+        )}
       </Layout>
     </>
   );
