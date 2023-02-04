@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function SSG({
   posts,
+  randomPost,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -21,7 +22,7 @@ export default function SSG({
           Server Side Generation
         </h1>
         {posts[0] ? (
-          <Post {...posts[Math.floor(Math.random() * posts.length)]} />
+          <Post {...posts[randomPost]} />
         ) : (
           <div className={styles.main}>No posts found!</div>
         )}
@@ -58,9 +59,13 @@ export async function getStaticProps() {
     }
     `
   );
+
+  const randomPost = Math.floor(Math.random() * posts.length);
+
   return {
     props: {
       posts,
+      randomPost,
     },
   };
 }

@@ -58,6 +58,8 @@ export default function CSR() {
       </Layout>
     );
 
+  const randomPost = Math.floor(Math.random() * data!.posts.length);
+
   return (
     <>
       <Head>
@@ -68,9 +70,7 @@ export default function CSR() {
           Client Side Rendering
         </h1>
         {data?.posts[0] ? (
-          <Post
-            {...data!.posts[Math.floor(Math.random() * data.posts.length)]}
-          />
+          <Post {...data!.posts[randomPost]} />
         ) : (
           <div className={styles.main}>No posts found!</div>
         )}

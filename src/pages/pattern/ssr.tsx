@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function SSR({
   posts,
+  randomPost,
 }: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
     <>
@@ -21,7 +22,7 @@ export default function SSR({
           Server Side Rendering
         </h1>
         {posts[0] ? (
-          <Post {...posts[Math.floor(Math.random() * posts.length)]} />
+          <Post {...posts[randomPost]} />
         ) : (
           <div className={styles.main}>No posts found!</div>
         )}
@@ -58,9 +59,13 @@ export async function getServerSideProps() {
     }
     `
   );
+
+  const randomPost = Math.floor(Math.random() * posts.length);
+
   return {
     props: {
       posts,
+      randomPost,
     },
   };
 }
