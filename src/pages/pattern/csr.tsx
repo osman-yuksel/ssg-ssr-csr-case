@@ -5,6 +5,7 @@ import useSWR, { Fetcher } from "swr";
 import { request } from "graphql-request";
 import Layout from "@/components/layout";
 import Post from "@/components/post";
+import Notes from "@/components/notes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -69,6 +70,22 @@ export default function CSR() {
         <h1 className={`${inter.className} text-5xl mb-4`}>
           Client Side Rendering
         </h1>
+        <Notes>
+          <ul>
+            <li>
+              - Rendering is done entirely in the browser using JavaScript.
+            </li>
+            <li>- Initial load may be slowler than others. </li>
+            <li>
+              - You often can see a &quot;loading...&quot; state while the
+              browser fetches post data.
+            </li>
+            <li>
+              - Post content in this page should change after reloading the
+              page.
+            </li>
+          </ul>
+        </Notes>
         {data?.posts[0] ? (
           <Post {...data!.posts[randomPost]} />
         ) : (

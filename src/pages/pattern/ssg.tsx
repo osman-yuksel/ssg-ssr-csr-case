@@ -5,6 +5,7 @@ import { InferGetStaticPropsType } from "next";
 import { GraphQLClient } from "graphql-request";
 import Layout from "@/components/layout";
 import Post from "@/components/post";
+import Notes from "@/components/notes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,22 @@ export default function SSG({
         <h1 className={`${inter.className} text-5xl mb-4`}>
           Server Side Generation
         </h1>
+        <Notes>
+          <ul>
+            <li>
+              - HTML is generated at build time and served as static files,
+              resulting in fast load times and improved SEO.
+            </li>
+            <li>
+              - Post content in this page will not change after reloading the
+              page.
+            </li>
+            <li>
+              - Limited interactivity, as all content must be generated at build
+              time.
+            </li>
+          </ul>
+        </Notes>
         {posts[0] ? (
           <Post {...posts[randomPost]} />
         ) : (

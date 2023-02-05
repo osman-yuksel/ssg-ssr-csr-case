@@ -5,6 +5,7 @@ import { InferGetStaticPropsType } from "next";
 import Layout from "@/components/layout";
 import { GraphQLClient } from "graphql-request";
 import Post from "@/components/post";
+import Notes from "@/components/notes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,23 @@ export default function SSR({
         <h1 className={`${inter.className} text-5xl mb-4`}>
           Server Side Rendering
         </h1>
+        <Notes>
+          <ul>
+            <li>- HTML is generated on the server and sent to the browser.</li>
+            <li>
+              - Initial load should be faster than CSR and provides improved
+              SEO.
+            </li>
+            <li>
+              - All data related to the post is fetched in the server, so there
+              is no &quot;loading...&quot; state.
+            </li>
+            <li>
+              - Post content in this page should change after reloading the
+              page.
+            </li>
+          </ul>
+        </Notes>
         {posts[0] ? (
           <Post {...posts[randomPost]} />
         ) : (
