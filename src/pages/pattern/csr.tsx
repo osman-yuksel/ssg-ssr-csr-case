@@ -22,7 +22,7 @@ export default function CSR() {
       posts {
         id
         content {
-          text
+          markdown
         }
         title
         slug

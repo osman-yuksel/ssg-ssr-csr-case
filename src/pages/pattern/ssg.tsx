@@ -59,7 +59,7 @@ export async function getStaticProps() {
       posts {
         id
         content {
-          text
+          markdown
         }
         title
         slug

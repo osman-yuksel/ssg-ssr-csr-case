@@ -60,7 +60,7 @@ export async function getServerSideProps() {
       posts {
         id
         content {
-          text
+          markdown
         }
         title
         slug

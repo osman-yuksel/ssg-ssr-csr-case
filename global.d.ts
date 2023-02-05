@@ -1,5 +1,5 @@
 interface Content {
-  text: string;
+  markdown: string;
 }
 
 interface CoverImage {
